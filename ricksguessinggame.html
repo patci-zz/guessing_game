@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guess Rick's Questions</title>
+  </head>
+  <body>
+    <header>
+      <h1> Rick's Guessing Game </h1>
+    </header>
+    <article>
+      <p> My programming journey began in junior high, shadowing web developers and attempting to create pages based on my favorite sports teams. In high school I took a programming class where we developed freestyle games of our choosing, incorporating as many elements as we were willing to learn. I strayed away from coding for a while, but I am finally ready to go all in now.</p>
+    </article>
+    <section>
+      <p><strong>In this game, you will be asked a series of questions. The more questions you get right, the higher your score (and prize) will be! Are you ready?</strong></p>
+    </section>
+    <button style = "height: 200px; width: 200px;" onclick = "beginGame()">Let's Go!</button>
+    <script>
+    /* So this is like, my first legit JavaScript program.
+   It collects data in the form of the player's name, and asks
+   a series of questions about me! The program keeps track of the
+   player's score along the way and at the end, if the score is "good"
+   enough, the player receives a star! But the type of star (gold, silver,
+   or bronze) depends on the player's score. Enjoy!*/
+
+
+//Declaration and input
+function beginGame(){
+var userScore = 0;
+var firstAnswer = "red";
+var secondAnswer = "Fremont";
+var thirdAnswer = "Justin";
+
+function addScore(){
+  userScore+=1;
+}
+
+//Player input
+var userName = prompt("Hello! Tell us, what is your name?");
+var firstQuestion = prompt("Okay, " + userName + "! What is Rick's favorite color?");
+
+//Algorithm & output
+  if (firstQuestion.toUpperCase() === firstAnswer.toUpperCase()) {
+    addScore();
+    alert("That's right! Rick's favorite color is " + firstAnswer + ". Ready for the next?");
+  } else {
+     alert("Sorry, " + userName + ". Rick is not very fond of " + firstQuestion + ". His favorite color is actually " + firstAnswer + ". Let's keep going, though!");
+  };
+
+//Player input
+var secondQuestion = prompt("What Seattle neighborhood does Rick live in?");
+
+//Algorithm and output
+  if (secondQuestion.toUpperCase() === secondAnswer.toUpperCase() && userScore === 1) {
+    addScore();
+    alert("Excellent! That's another point for you! But how do you know where Rick lives?");
+  }   else if (secondQuestion.toUpperCase() === secondAnswer.toUpperCase() && userScore === 0) {
+        addScore();
+        alert("There we go, " + userName + "! that's more like it! Let's keep going ...");
+        } else if (secondQuestion.toUpperCase() != secondAnswer.toUpperCase() && userScore === 1) {
+          alert("Sorry, " + userName + ". Rick lives in " + secondAnswer + ". Let's do one more, shall we?");
+          } else {
+          alert("Well, not a great start. Rick resides in " + secondAnswer + ". Still one more question to go, " + userName + ". Hang in there!");
+                };
+
+//Player input
+var thirdQuestion = prompt("Who is Rick's TA?");
+
+//Algorithm and output
+  if (thirdQuestion.toUpperCase() === thirdAnswer.toUpperCase() && userScore === 2) {
+    addScore();
+    alert("Fantastic! You aced the quiz and receive a GOLD STAR.");
+  } else if (thirdQuestion.toUpperCase() === thirdAnswer.toUpperCase() && userScore === 1) {
+             addScore();
+             alert("That is correct! Great finish, " + userName + "! You received a silver star!");
+    } else if (thirdQuestion.toUpperCase() === thirdAnswer.toUpperCase() && userScore === 0) {
+               addScore();
+               alert("Well, you got one, " + userName + ". That's more than most! Good job on taking home a bronze star!");
+      } else if (thirdQuestion.toUpperCase() != thirdAnswer.toUpperCase() && userScore === 2) {
+                 alert("Awww, so close, " + userName + "! Rick's TA is " + thirdAnswer + ". Still good enough to take home the silver star, though! Cheers!");
+        } else if (thirdQuestion.toUpperCase() != thirdAnswer.toUpperCase() && userScore === 1) {
+                   alert("Bummer, " + userName + ". No redemption here as Rick's TA is " + thirdAnswer + ". But you did earn a bronze star. Barely.");
+          } else {
+            alert("Sorry, " + userName + ". This just isn't for you. No prize this time.");
+            };
+}
+    </script>
+  </body>
+</html>
